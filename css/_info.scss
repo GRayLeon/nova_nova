@@ -30,6 +30,9 @@
             color: white;
             border-bottom: #DAFE38 4px solid;
             cursor: pointer;
+            &.active {
+                color: #DAFE38;
+            }
         }
     }
     &__content {

@@ -891,6 +891,9 @@ p {
   border-bottom: #DAFE38 4px solid;
   cursor: pointer;
 }
+.info__nav li.active {
+  color: #DAFE38;
+}
 .info__content {
   position: relative;
   transition: height 0.6s;

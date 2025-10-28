@@ -33,15 +33,16 @@
         }
     }
     &__content {
+        position: relative;
         transition: height .6s;
         height: auto;
         min-height: 350px;
-        > * {
-            display: none;
-            min-height: 500px;
-            &.active {
-                display: flex;
-            }
+    }
+    &__display {
+        display: none;
+        min-height: 500px;
+        &.active {
+            display: flex;
         }
     }
     &__footer {
@@ -437,6 +438,28 @@
             color: white;
             border-radius: 4px;
             background-color: #017EFF;
+        }
+    }
+
+    .goTop {
+        position: sticky;
+        bottom: 24px;
+        right: 0;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        .button {
+            display: flex;
+            padding: 12px;
+            font-weight: 700;
+            color: white;
+            border-radius: 5px;
+            letter-spacing: 4px;
+            background-color: rgba(0,0,0,.5);
+            cursor: pointer;
+            &:hover {
+                text-decoration: none;
+            }
         }
     }
 }

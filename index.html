@@ -8,7 +8,7 @@
     <script defer>
         document.addEventListener('DOMContentLoaded', () => {
             const navItems = document.querySelectorAll('.info__nav li');
-            const contentDivs = document.querySelectorAll('.info__content > div');
+            const contentDivs = document.querySelectorAll('.info__content > .info__display');
             const titleImg = document.querySelector('.info__title img');
 
             navItems.forEach(li => {
@@ -145,7 +145,7 @@
         </div>
         <div class="info">
             <div class="wrapper">
-                <div class="info__header">
+                <div class="info__header" id="info__header">
                     <div class="info__title mainTitle">
                         <img src="./images/info__title--jam.svg" alt="">
                     </div>
@@ -157,7 +157,7 @@
                     </ul>
                 </div>
                 <div class="info__content">
-                    <div id="jam" class="active">
+                    <div id="jam" class="info__display active">
                         <div class="info__detail">
                             <div class="info__section">
                                 <div class="info__subtitle">演出者介紹</div>
@@ -496,7 +496,7 @@
                             </div>
                         </div>
                     </div>
-                    <div id="market">
+                    <div id="market" class="info__display">
                         <div class="info__detail">
                             <div class="info__section">
                             <div class="info__subtitle">探索自我</div>
@@ -548,7 +548,7 @@
                             </div>
                         </div>
                     </div>
-                    <div id="lab">  
+                    <div id="lab" class="info__display">  
                         <div class="info__detail">
                             <div class="lab__section">
                                 <img src="./images/lab-01.jpg" />
@@ -626,7 +626,7 @@
                             </div>
                         </div>
                     </div>
-                    <div id="tfai">
+                    <div id="tfai" class="info__display">
                         <div class="tfai__tableArea">
                             <div class="tfai__info">
                                 <p>
@@ -815,6 +815,11 @@
                                 </div>
                             </div>
                         </div>
+                    </div>
+                    <div class="goTop">
+                        <a href="#info__header" class="button">
+                            回到選單
+                        </a href="#">
                     </div>
                 </div>
                 <div class="info__footer">

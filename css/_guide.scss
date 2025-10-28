@@ -31,11 +31,15 @@
                         height: 28px;
                         background-color: #017EFF;
                     }
+                    span {
+                        font-size: 12px;
+                    }
+                }
+                p {
+                    font-size: 13px;
+                    line-height: 26px;
                 }
             }
-        }
-        &--iframe {
-            flex: 1;
         }
     }
 

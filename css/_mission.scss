@@ -1,0 +1,74 @@
+.mission {
+    padding: 96px 0 96px;
+    background:
+        url('../images/mission_BG--top.jpg') center top / auto 348px no-repeat,
+        url('../images/mission_BG--bottom.jpg') center bottom / auto 623px no-repeat;
+
+    .wrapper {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+        height: 100%;
+    }
+    &__content {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-end;
+        gap: 48px;
+    }
+    &__detail {
+        &--text {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+            width: calc(100% - 328px);
+            .subtitle {
+                color: #FF99B1;
+                &:before {
+                    content: '';
+                    display: block;
+                    width: 4px;
+                    height: 28px;
+                    background-color: #FF99B1;
+                }
+            }
+            .notice {
+                &--square {
+                    display: flex;
+                    flex-direction: row;
+                    gap: 24px;
+                    padding: 36px;
+                    color: white;
+                    background-color: #017EFF;
+                    .title {
+                        font-size: 20px;
+                        font-weight: 700;
+                        color: #DAFE38;
+                    }
+                }
+            }
+        }
+        &--image {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+            width: 280px;
+            img {
+                width: 100%;
+                height: 280px;
+                object-fit: cover;
+                object-position: center;
+            }
+        }
+    }
+    &__title {
+        width: 100%;
+        height: 96px;
+        img {
+            width: 100%;
+            height: 96px;
+            object-fit: contain;
+            object-position: top left;
+        }
+    }
+}

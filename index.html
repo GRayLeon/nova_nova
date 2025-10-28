@@ -1,0 +1,866 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <script defer>
+        document.addEventListener('DOMContentLoaded', () => {
+            const navItems = document.querySelectorAll('.info__nav li');
+            const contentDivs = document.querySelectorAll('.info__content > div');
+            const titleImg = document.querySelector('.info__title img');
+
+            navItems.forEach(li => {
+                li.addEventListener('click', () => {
+                    const targetId = li.getAttribute('data-target');
+                    const targetDiv = document.getElementById(targetId);
+
+                    // 移除 active 狀態
+                    navItems.forEach(item => item.classList.remove('active'));
+                    contentDivs.forEach(div => div.classList.remove('active'));
+
+                    // 加上 active
+                    li.classList.add('active');
+
+                    // --- 淡出舊內容 ---
+                    contentDivs.forEach(div => {
+                        div.classList.remove('fade-in');
+                        div.classList.add('fade-out');
+                    });
+
+                    // --- 更新圖片 ---
+                    const currentSrc = titleImg.getAttribute('src');
+                    const newSrc = currentSrc.replace(/--[^.]+/, `--${targetId}`);
+                    titleImg.classList.add('fade-out');
+
+                    setTimeout(() => {
+                        // 切換圖片
+                        titleImg.src = newSrc;
+                        titleImg.classList.remove('fade-out');
+                        titleImg.classList.add('fade-in');
+
+                        // 顯示新內容並淡入
+                        targetDiv.classList.remove('fade-out');
+                        targetDiv.classList.add('active', 'fade-in');
+                    }, 300);
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+    <div id="app">
+        <div class="header"></div>
+        <div class="banner">
+            <img src="./images/banner--desktop.png" class="desktop" />
+            <img src="./images/banner--mobile.jpg" class="mobile" />
+        </div>
+        <div class="about">
+            <div class="wrapper">
+                <div class="about__header">
+                    <img src="./images/about__header.svg" />
+                </div>
+                <div class="about__content">
+                    <div class="detail">
+                        <p>
+                            新生地藝術節 NOVA NOVA」呼應新北市美術館自今春開館以來「立基在地，面向國際」的定位。美術館所在的三鶯地區，是文化、工藝與自然共生的沃土，而新北市美術館的誕生，正如這片土地在文化層面的再一次能量聚合與爆發，坐落於鶯歌溪畔「新生之地」中誕生的新星，迸發潛藏的能量與光芒。
+                        </p>
+                        <p>
+                            「NOVA NOVA」一詞取自天文學的「新星」（Nova）意象，象徵恆星系統中能量的突然釋放——在短暫時間內以極高亮度閃耀的天體事件。這股能量的迸發，映照著新北市美術館於2025年正式開館後所激發的文化亮度與創造力。我們期許這樣的閃耀不止於一瞬，而能以「新生地藝術節」為恆定的軌跡，每年於入秋之際於鶯歌再度亮起。
+                        </p>
+                        <p>
+                            透過位於新美聚場以及藝術天台的各項關於空間、自我、五感以及美學的探索，由美術館策動、透過展覽與公眾活動所串連的多重能量，將如星群般持續閃爍，映照出屬於這座城市的文化星象。
+                        </p>
+                    </div>
+                    <div class="about__title mainTitle">
+                        <img src="./images/about__title.svg" />
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="map">
+            <div class="wrapper">
+                <div class="map__content">
+                    <img src="./images/map.jpg" />
+                </div>
+                <div class="map__title mainTitle">
+                    <img src="./images/map__title.svg" />
+                </div>
+            </div>
+        </div>
+        <div class="mission">
+            <div class="wrapper">
+                <div class="mission__title mainTitle">
+                    <img src="./images/mission__title.svg" />
+                </div>
+                <div class="mission__content">
+                    <div class="mission__detail--text">
+                        <p>
+                            在新北市美術館的每個角落，都藏著一片屬於光的碎片。<br />
+                            跟著直覺前進，讓自己成為那道光的尋者。
+                        </p>
+                        <div class="subtitle">任務說明</div>
+                        <p>
+                            前往新北市美術館1樓新美聚場與2樓藝術天台自由探索，<br />
+                            尋找隱藏在空間中的「光之碎片」。
+                        </p>
+                        <p>
+                            活動範圍共分為4個區域，每個區域的碎片都有不同的圖形與顏色，<br />
+                            並印有專屬編號，象徵光的座標。
+                        </p>
+                        <div class="subtitle">透明幣使用說明</div>
+                        <p>
+                            每找到一片「光之碎片」，可至 大會服務台 兌換 1枚透明幣。<br />
+                            透明幣可於 「尋光市集」 攤位中折抵 100元 消費。<br />
+                            使用時，請將透明幣交給該品牌攤位工作人員作為折抵，每筆消費限使用1枚透明幣，且不可找零。<br />
+                            使用後的透明幣將由大會統一回收，無法退還或帶回收藏。
+                        </p>
+                        <div class="notice--square">
+                            <div class="title">提示</div>
+                            <p>
+                                光的碎片散落在美術館每一個角落，<br />
+                                當你改變目光的方向，<br />
+                                那些碎光就會聚成屬於你的新星。
+                            </p>
+                        </div>
+                        <div class="notice--line">
+                            ＊實際遊戲規則與藏點安排以主辦單位公告為準，主辦單位保有活動最終解釋權＊
+                        </div>
+                    </div>
+                    <div class="mission__detail--image">
+                        <img src="./images/mission_1.jpg" />
+                        <img src="./images/mission_2.jpg" />
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="info">
+            <div class="wrapper">
+                <div class="info__header">
+                    <div class="info__title mainTitle">
+                        <img src="./images/info__title--jam.svg" alt="">
+                    </div>
+                    <ul class="info__nav">
+                        <li data-target="jam">星動舞台</li>
+                        <li data-target="market">尋光市集</li>
+                        <li data-target="lab">靈感工坊</li>
+                        <li data-target="tfai">映像回潮</li>
+                    </ul>
+                </div>
+                <div class="info__content">
+                    <div id="jam">
+                        <div class="info__detail">
+                            <div class="info__section">
+                                <div class="info__subtitle">演出者介紹</div>
+                                <div class="artist__detail">
+                                    <div class="artist__title">
+                                        星動·聲場 / NOVA SOUND
+                                    </div>
+                                    <div class="artist__detail__card">
+                                        <div class="title">someshiit 山姆</div>
+                                        <img src="./images/artist-01.jpg" />
+                                        <div class="text">
+                                            <p>
+                                                someshiit 山姆以結合樂團編制的臥室饒舌見長。首支 demo〈那些勸我別抽菸的人都死了〉累積逾538萬次觀看，首張專輯《愚公》為他奪下金曲36屆最佳新人。他參與大港開唱、浪人祭等大型音樂節，並曾與洪佩瑜、maco marets、CHS等海內外樂人合作。自2023發行EP《往而不返》、2024推出《愚公》，2025將重製出道作，持續以細膩詞作與樂團聲響拓展台灣饒舌邊界。
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="artist__detail__card">
+                                        <div class="title">秋波電台</div>
+                                        <img src="./images/artist-02.jpg" />
+                                        <div class="text">
+                                            <p>
+                                                秋波電台是一個非營利的線上網路電台，<br />
+                                                主要由Jim與DJ QQ共同主持經營。<br />
+                                                2007年受法式電音與Disco/Funk感召，踏上了DJ之旅。<br />
+                                                2016年建立了秋波電台，在每個月1~2次的特製節目中播送弛放的音樂；<br />
+                                                主旨是為了紓解都市人生活中的壓力，提供大眾不同的收聽選擇與習慣。<br />
+                                                在音樂的襯著下提升生活中的品味及美學。
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="artist__detail__card">
+                                        <div class="title">DJ 林貓王</div>
+                                        <img src="./images/artist-03.jpg" />
+                                        <div class="text">
+                                            <p>
+                                                從音樂部落格【音樂是這世界上最美好的事】出發，推廣獨立音樂二十年，從搖滾放到電子樂，從民謠放到靈魂樂，以主題性歌單為特色，如「告白之夜」、「流浪之夜」、「瞪鞋之夜」；曾推出原聲帶企劃，為《王牌冤家》、《戀夏 500日》等電影重新配樂。
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="artist__detail__card">
+                                        <div class="title">十九兩樂團</div>
+                                        <img src="./images/artist-04.jpg" />
+                                        <div class="text">
+                                            <p>
+                                                十九兩是由手風琴手阿雞以及小提琴手瑞奇所組成，一開始組以歐式民謠演奏為主，後來開始嘗試在Livehouse演出，演奏的內容嘗試結合說書人的劇場風格在演出中，創作出獨一無二的表演形式。
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="artist__detail">
+                                    <div class="artist__title">
+                                        星動·流形 / NOVA MOTION
+                                    </div>
+                                    <div class="artist__detail__card">
+                                        <div class="title">星合有限公司</div>
+                                        <img src="./images/artist-05.jpg" />
+                                        <div class="text">
+                                            <p>
+                                                前太陽馬戲團表演者陳星合與串連臺灣及國際馬戲社群的江侑倫共同創辦，致力於馬戲策劃與推廣。以「星光雖然微小，集合起來璀璨無比」的核心精神，匯集海內外馬戲專業，號召各界跨域合作，結合當代人文敘事與美學元素，呈現當代馬戲的多元性以拓展想像。現為 Circostrada 歐洲當代馬戲與戶外藝術聯盟成員、CAN 亞洲馬戲聯盟成員。
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="artist__detail__card">
+                                        <div class="title">Milla Lee</div>
+                                        <img src="./images/artist-06.jpg" />
+                                        <div class="text">
+                                            <p>
+                                                跨領域藝術家，創作橫跨行為藝術、裝置與影像。母親為台灣南島原住民族阿美族，父親為印尼華僑。她以身體作為感知與轉化的媒介，探討歷史創傷、集體記憶與人與自然的連結。<br />
+                                                作品展現生態女性主義與解殖視角，回應資本與技術宰制下的身體與感知異化，召喚人類重新與土地、歷史與萬物建立關係。<br />
+                                                近年受邀參與台灣、日本、香港與印尼日惹藝術節等地展演與駐村，<br />
+                                                代表作品包括《石頭》、《返身自然》、《生之火》、《價值？》與《混沌之息》。<br />
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="artist__detail__card">
+                                        <div class="title">Afra Lin</div>
+                                        <img src="./images/artist-07.jpg" />
+                                        <div class="text">
+                                            <p>
+                                                自由創作者，寶藏巖藝術村微型聚落駐村六年，第十屆雲門流浪者，太平洋帆船航行一年半載後，與大地重新展開連結方式，於各地音樂祭及即興接觸舞蹈擔任樂手及舞者，持續行旅採集人間動植物的故事，與自然的能量律動學習。
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="artist__detail__card">
+                                        <div class="title">沛元的聲波療癒室</div>
+                                        <img src="./images/artist-08.jpg" />
+                                        <div class="text">
+                                            <p>
+                                                陳沛元 Atisha Chen，以充滿自然療癒觸動心靈的手碟音流、聲波療癒演奏，傳遞能令身心靈平衡轉化的共振能量。在過往音樂修行歷程中，走訪世界學習古老的靈性音樂傳統與瀕臨失傳的神聖樂器，內化成為生命與創作的靈感泉源，並將古老智慧與自然能量轉譯成當代的音藥。
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="info__section">
+                                <div class="info__subtitle">演出時刻表</div>
+                                <div class="artist__title">
+                                    星動·聲場 / NOVA SOUND
+                                </div>
+                                 <div class="artist__table">
+                                    <div class="artist__table__row">
+                                        <div class="artist__table__cell">
+                                            <div class="date">11/1（六）</div>
+                                            <div class="time">13:00-13:15</div>
+                                        </div>
+                                        <div class="artist__table__cell">
+                                            <div class="name">秋波電台｜現場 Remix & Chill Set</div>
+                                        </div>
+                                    </div>
+                                    <div class="artist__table__row">
+                                        <div class="artist__table__cell">
+                                            <div class="date">11/1（六）</div>
+                                            <div class="time">17:30-18:00</div>
+                                        </div>
+                                        <div class="artist__table__cell">
+                                            <div class="name">十九兩樂團｜說書人的音樂劇場</div>
+                                        </div>
+                                    </div>
+                                    <div class="artist__table__row">
+                                        <div class="artist__table__cell">
+                                            <div class="date">11/2（日）</div>
+                                            <div class="time">14:00-15:00</div>
+                                        </div>
+                                        <div class="artist__table__cell">
+                                            <div class="name">林貓王｜百變風格 DJ</div>
+                                        </div>
+                                    </div>
+                                    <div class="artist__table__row">
+                                        <div class="artist__table__cell">
+                                            <div class="date">11/2（日）</div>
+                                            <div class="time">17:30-18:00</div>
+                                        </div>
+                                        <div class="artist__table__cell">
+                                            <div class="name">someshiit 山姆｜2025金曲獎最佳新人</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="artist__title">
+                                    星動·流形 / NOVA MOTION
+                                </div>
+                                 <div class="artist__table">
+                                    <div class="artist__table__row">
+                                        <div class="artist__table__cell">
+                                            <div class="date">11/1（六）</div>
+                                            <div class="time">13:00-13:15</div>
+                                        </div>
+                                        <div class="artist__table__cell">
+                                            <div class="name">星合有限公司｜搖搖晃晃輕飄飄</div>
+                                            <div class="location">星動舞台</div>
+                                        </div>
+                                    </div>
+                                    <div class="artist__table__row">
+                                        <div class="artist__table__cell">
+                                            <div class="date">11/1（六）</div>
+                                            <div class="time">14:00-15:00</div>
+                                        </div>
+                                        <div class="artist__table__cell">
+                                            <div class="name">沛元的聲波療癒室｜Atisha’s Sound Healing SPA</div>
+                                            <div class="location">星動舞台</div>
+                                        </div>
+                                    </div>
+                                    <div class="artist__table__row">
+                                        <div class="artist__table__cell">
+                                            <div class="date">11/1（六）</div>
+                                            <div class="time">14:00-14:30</div>
+                                        </div>
+                                        <div class="artist__table__cell">
+                                            <div class="name">星合有限公司｜玩球之外－雜耍工作坊<span>報名者請於活動開始10分鐘前至大會服務台集合</span></div>
+                                            <div class="location">不定期出沒</div>
+                                        </div>
+                                    </div>
+                                    <div class="artist__table__row">
+                                        <div class="artist__table__cell">
+                                            <div class="date">11/1（六）</div>
+                                            <div class="time">14:30-15:30</div>
+                                        </div>
+                                        <div class="artist__table__cell">
+                                            <div class="name">Afra Lin｜石牆、迷宮，與展開的身體宇宙<span>報名者請於活動開始10分鐘前至大會服務台集合</span></div>
+                                            <div class="location">天臺</div>
+                                        </div>
+                                    </div>
+                                    <div class="artist__table__row">
+                                        <div class="artist__table__cell">
+                                            <div class="date">11/1（六）</div>
+                                            <div class="time">15:30-15:45</div>
+                                        </div>
+                                        <div class="artist__table__cell">
+                                            <div class="name">星合有限公司｜搖搖晃晃輕飄飄</div>
+                                            <div class="location">星動舞台</div>
+                                        </div>
+                                    </div>
+                                    <div class="artist__table__row">
+                                        <div class="artist__table__cell">
+                                            <div class="date">11/1（六）</div>
+                                            <div class="time">16:00-16:30</div>
+                                        </div>
+                                        <div class="artist__table__cell">
+                                            <div class="name">星合有限公司｜玩球之外－雜耍工作坊<span>報名者請於活動開始10分鐘前至大會服務台集合</span></div>
+                                            <div class="location">不定期出沒</div>
+                                        </div>
+                                    </div>
+                                    <div class="artist__table__row">
+                                        <div class="artist__table__cell">
+                                            <div class="date">11/2（日）</div>
+                                            <div class="time">11:00-12:00</div>
+                                        </div>
+                                        <div class="artist__table__cell">
+                                            <div class="name">Milla Lee｜共同承載 Carrying Together</div>
+                                            <div class="location">天臺</div>
+                                        </div>
+                                    </div>
+                                    <div class="artist__table__row">
+                                        <div class="artist__table__cell">
+                                            <div class="date">11/2（日）</div>
+                                            <div class="time">13:00-13:15</div>
+                                        </div>
+                                        <div class="artist__table__cell">
+                                            <div class="name">星合有限公司｜搖搖晃晃輕飄飄</div>
+                                            <div class="location">星動舞台</div>
+                                        </div>
+                                    </div>
+                                    <div class="artist__table__row">
+                                        <div class="artist__table__cell">
+                                            <div class="date">11/2（日）</div>
+                                            <div class="time">14:00-14:30</div>
+                                        </div>
+                                        <div class="artist__table__cell">
+                                            <div class="name">星合有限公司｜玩球之外－雜耍工作坊<span>報名者請於活動開始10分鐘前至大會服務台集合</span></div>
+                                            <div class="location">不定期出沒</div>
+                                        </div>
+                                    </div>
+                                    <div class="artist__table__row">
+                                        <div class="artist__table__cell">
+                                            <div class="date">11/2（日）</div>
+                                            <div class="time">15:30-15:45</div>
+                                        </div>
+                                        <div class="artist__table__cell">
+                                            <div class="name">星合有限公司｜搖搖晃晃輕飄飄</div>
+                                            <div class="location">星動舞台</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="info__section">
+                                <div class="info__subtitle">演出工作坊</div>
+                                <div class="studio__sectionArea">
+                                    <div class="studio__section">
+                                        <div class="title">星合有限公司｜玩球之外－雜耍工作坊</div>
+                                        <div class="detail">
+                                            <img src="./images/studio-01.jpg" />
+                                            <p>
+                                                藉由簡單上手的步驟，增強協調也提高自信，發現勇於接受挑戰的自己。<br />
+                                                星合有限公司設計適合各年齡層的雜耍體操，在充滿趣味的旋律舒展筋骨，也在每次雜耍拋接累積成就感。歡笑與汗水相伴，球掉了也沒關係，撿起來就好。
+                                            </p>
+                                            <div class="detail__section">
+                                                <div class="detail__title">活動場次</div>
+                                                <div class="detail__detail">
+                                                    11/1（六） 14:00-14:30 / 16:00-16:30<br />
+                                                    11/2（日）14:00-14:30
+                                                </div>
+                                            </div>
+                                            <div class="detail__section">
+                                                <div class="detail__title">場次數量</div>
+                                                <div class="detail__detail">共3場</div>
+                                            </div>
+                                            <div class="detail__section">
+                                                <div class="detail__title">報名方式</div>
+                                                <div class="detail__detail">線上報名（若報名尚未額滿，將開放現場觀眾報名，請至NOVA NOVA大會服務台詢問。）</div>
+                                            </div>
+                                            <div class="detail__section">
+                                                <div class="detail__title">報名連結</div>
+                                                <div class="detail__detail">
+                                                    場次1（11/1｜14:00-14:30）<a target="_blank" href="https://forms.gle/nuGg7yuJHd999HEo7">https://forms.gle/nuGg7yuJHd999HEo7</a><br />
+                                                    場次2（11/1｜16:00-16:30）<a target="_blank" href="https://forms.gle/4QgAe8bcDYjYFyEq6">https://forms.gle/4QgAe8bcDYjYFyEq6</a><br />
+                                                    場次3（11/2｜14:00-14:30）<a target="_blank" href="https://forms.gle/smaGzzTpB6EDfz8Z6">https://forms.gle/smaGzzTpB6EDfz8Z6</a><br />
+                                                </div>
+                                            </div>
+                                            <div class="detail__section">
+                                                <div class="detail__title">人數限制</div>
+                                                <div class="detail__detail">20人</div>
+                                            </div>
+                                            <div class="detail__section">
+                                                <div class="detail__title">年齡限制</div>
+                                                <div class="detail__detail">10歲以上</div>
+                                            </div>
+                                            <div class="detail__section">
+                                                <div class="detail__title">體驗費用</div>
+                                                <div class="detail__detail">免費參加，一起歡樂舒展筋骨吧！</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="studio__section">
+                                        <div class="title">Afra Lin｜石牆、迷宮，與展開的身體宇宙</div>
+                                        <div class="detail">
+                                            <img src="./images/studio-02.jpg" />
+                                            <p>於新美館二樓獨特的天台場域，連結肢體的內部及外在環境，建築體與自然、堅硬與柔軟、骨骼與肌肉⋯⋯透過步行與身體律動，拓展感知並以肢體自由自在地回應。</p>
+                                            <div class="detail__section">
+                                                <div class="detail__title">活動場次</div>
+                                                <div class="detail__detail">11/1（六）14:30-15:30</div>
+                                            </div>
+                                            <div class="detail__section">
+                                                <div class="detail__title">報名方式</div>
+                                                <div class="detail__detail">線上報名（若報名尚未額滿，將開放現場觀眾報名，請至大會服務台詢問。）</div>
+                                            </div>
+                                            <div class="detail__section">
+                                                <div class="detail__title">報名網址</div>
+                                                <div class="detail__detail"><a target="_blank" href="https://forms.gle/ZCc6thgdzprMTP7Z8">https://forms.gle/ZCc6thgdzprMTP7Z8</a></div>
+                                            </div>
+                                            <div class="detail__section">
+                                                <div class="detail__title">人數限制</div>
+                                                <div class="detail__detail">12人</div>
+                                            </div>
+                                            <div class="detail__section">
+                                                <div class="detail__title">體驗費用</div>
+                                                <div class="detail__detail">免費參加，一起探索身體與空間吧！</div>
+                                            </div>
+                                            <p>
+                                                *無需任何舞蹈經驗，適合一般民眾，帶著放鬆自在的心情參加即可。<br />
+                                                *請穿著舒適移動的衣物，並請將大包包寄放服務台。
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="market" class="active">
+                        <div class="info__detail">
+                            <div class="info__section">
+                            <div class="info__subtitle">探索自我</div>
+                            <ul class="market__list">
+                                <li><a target="_blank" href="https://www.instagram.com/kuruptah_y?igsh=MWozZW56d29mM2FjYw%3D%3D&utm_source=qr"><img src="./images/market-01.jpg" /><div class="name">庫魯不塔人</div></a></li>
+                                <li><a target="_blank" href="https://instagram.com/005hwr?igshid=mok1rfwjh9eo"><img src="./images/market-02.jpg" /><div class="name">#讓我畫你</div></a></li>
+                                <li><a target="_blank" href="https://www.instagram.com/chiaisgood/"><img src="./images/market-03.jpg" /><div class="name">奇亞子</div></a></li>
+                                <li><a target="_blank" href="https://www.instagram.com/jivan_touch?igsh=MWU5dDQ1NDI1eTR2MA=="><img src="./images/market-04.jpg" /><div class="name">一身土香</div></a></li>
+                            </ul>
+                            </div>
+
+                            <div class="info__section">
+                            <div class="info__subtitle">探索氣味與自然氣息</div>
+                            <ul class="market__list">
+                                <li><a target="_blank" href="https://www.instagram.com/mojimoji.mj?igsh=MXc4aWR2Njl0amVnbw%3D%3D&utm_source=qr"><img src="./images/market-05.jpg" /><div class="name">MojiMoji-默記</div></a></li>
+                                <li><a target="_blank" href="https://www.instagram.com/lifewithflower.home/"><img src="./images/market-06.jpg" /><div class="name">Life with Flower｜花宅日常</div></a></li>
+                                <li><a target="_blank" href="https://www.instagram.com/nichi_aroma/"><img src="./images/market-07.jpg" /><div class="name">日々·にちにち</div></a></li>
+                                <li><a target="_blank" href="https://instagram.com/yuyuteadaily?utm_medium=copy_link"><img src="./images/market-08.jpg" /><div class="name">郁郁YùYù</div></a></li>
+                            </ul>
+                            </div>
+
+                            <div class="info__section">
+                            <div class="info__subtitle">探索生活靈感</div>
+                            <ul class="market__list">
+                                <li><a target="_blank" href="https://www.instagram.com/galin0bject?igsh=bjgwbGhrbGJlZHVm&utm_source=qr"><img src="./images/market-09.jpg" /><div class="name">GALIN Object</div></a></li>
+                                <li><a target="_blank" href="https://www.instagram.com/busy_fingers_tw"><img src="./images/market-10.jpg" /><div class="name">Busy Fingers</div></a></li>
+                                <li><a target="_blank" href="https://www.instagram.com/peihumade?igsh=Y21rZzdlam5nc2xj&utm_source=qr"><img src="./images/market-11.jpg" /><div class="name">PÊIHU</div></a></li>
+                                <li><a target="_blank" href="https://www.instagram.com/shansarts/"><img src="./images/market-12.jpg" /><div class="name">Shan's Arts</div></a></li>
+                                <li><a target="_blank" href="https://www.instagram.com/nakaiyumiko_pottery?igsh=MTdjenduOWV0bXR0NA%3D%3D&utm_source=qr"><img src="./images/market-13.jpg" /><div class="name">yumiko nakai</div></a></li>
+                                <li><a target="_blank" href="https://www.facebook.com/feyakao"><img src="./images/market-14.jpg" /><div class="name">下手上手</div></a></li>
+                                <li><a target="_blank" href="https://linktr.ee/tengyawen?utm_source=linktree_profile_share&ltsid=598189d1-9463-4faf-9fd2-0051a8953a64"><img src="./images/market-15.jpg" /><div class="name">Tengyawen 白瓷飾品</div></a></li>
+                                <li><a target="_blank" href="http://www.instagram.com/dunia_handmade"><img src="./images/market-16.jpg" /><div class="name">DUNIA handmade</div></a></li>
+                                <li><a target="_blank" href="https://www.instagram.com/slowsoulhand?igsh=MTR0YWF3OTFmd3BlMw%3D%3D&utm_source=qr"><img src="./images/market-17.jpg" /><div class="name">慢手</div></a></li>
+                                <li><a target="_blank" href="https://www.instagram.com/mountopia.tw/"><img src="./images/market-18.jpg" /><div class="name">Mountopia 山托邦</div></a></li>
+                                <li><a target="_blank" href="https://www.facebook.com/maostudio/"><img src="./images/market-19.jpg" /><div class="name">Mao's 樂陶陶</div></a></li>
+                                <li><a target="_blank" href="https://www.instagram.com/indigostudio.tw/"><img src="./images/market-20.jpg" /><div class="name">Indigo Studio</div></a></li>
+                                <li><a target="_blank" href="https://www.instagram.com/phytooo"><img src="./images/market-21.jpg" /><div class="name">phytooo</div></a></li>
+                                <li><a target="_blank" href="https://www.instagram.com/sincere.tw2020/"><img src="./images/market-22.jpg" /><div class="name">自心愛護動物協會</div></a></li>
+                            </ul>
+                            </div>
+
+                            <div class="info__section">
+                            <div class="info__subtitle">探索味蕾</div>
+                            <ul class="market__list">
+                                <li><a target="_blank" href="https://www.instagram.com/riffcoffee.roasters?igsh=MW14ajU2MHFxcWQ2ZQ=="><img src="./images/market-23.jpg" /><div class="name">Riff Coffee Roasters</div></a></li>
+                                <li><a target="_blank" href="https://lihi.cc/njyQL"><img src="./images/market-24.jpg" /><div class="name">fixin' 風味工作室</div></a></li>
+                                <li><a target="_blank" href="https://instagram.com/ririchun_foods"><img src="./images/market-25.jpg" /><div class="name">日日春.油飯</div></a></li>
+                            </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="lab">  
+                        <div class="info__detail">
+                            <div class="lab__section">
+                                <img src="./images/lab-01.jpg" />
+                                <div class="text">
+                                    <div class="lab__title">MujiMuij-默記</div>
+                                    <div class="lab__detail">
+                                        <div class="subtitle">原石擴香石手作體驗課</div>
+                                        <div class="detail">
+                                            <p>
+                                                ∎ 開放時間：11/1（六）、11/2（日）13:30-14:00 / 14:30-15:00 / 15:30-16:00<br />
+                                                ∎ 報名方式：線上報名<br />
+                                                ∎ 報名網址 https://reurl.cc/VWy43N<br />
+                                                ∎ 體驗時間：約30mins（請提早10分鐘報到喔！）<br />
+                                                ∎ 體驗費用：880元（原石造型 擴香石 2顆）<br />
+                                                ∎ 1人即可上課，每場次4人即滿班。
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="lab__section">
+                                <img src="./images/lab-02.jpg" />
+                                <div class="text">
+                                    <div class="lab__title">Ｍao’s 樂陶陶</div>
+                                    <div class="lab__detail">
+                                        <div class="subtitle">陶瓷貼花｜一起創作最有愛的餐桌日常</div>
+                                        <div class="detail">
+                                            <p>
+                                                以「人與動物溫柔相伴」為靈感的陶瓷貼花體驗中，邀請你親手貼出屬於自己的陶瓷作品。現場提供多款可愛圖案與英文字母花紙，讓每一件作品都成為獨一無二的日常風景。<br />
+                                                透過陶瓷貼花這個溫柔的工藝過程，感受陶瓷與生活，作品經窯燒後即可日常使用，讓手作的溫度成為日常最有愛的陪伴。<br />
+                                                <br />
+                                                ∎ 現場報名，活動詳情請洽品牌
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="lab__section">
+                                <img src="./images/lab-03.jpg" />
+                                <div class="text">
+                                    <div class="lab__title">一身土香</div>
+                                    <div class="lab__detail">
+                                        <div class="subtitle">香氣按摩療癒工作坊</div>
+                                        <div class="detail">
+                                            <p>
+                                                香氣按摩（頭/肩頸/手）<br />
+                                                以香氣引領，緩緩將思緒回到身體<br />
+                                                <br />
+                                                ∎ 體驗時間：約20分鐘<br />
+                                                ∎ 體驗費用：600元<br />
+                                                ∎ 現場報名，活動詳情請洽品牌<br />
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="lab__section">
+                                <img src="./images/lab-04.jpg" />
+                                <div class="text">
+                                    <div class="lab__title">下手上手</div>
+                                    <div class="lab__detail">
+                                        <div class="subtitle">羊毛氈動物別針設計工作坊</div>
+                                        <div class="detail">
+                                            <p>
+                                                羊毛氈動物別針體驗｜隨心戳出一隻屬於你的動物！<br />
+                                                用羊毛的顏色、質感與想像力，讓牠長出生命。<br />
+                                                成品會被黏上別針，可以立刻帶回家。<br />
+                                                <br />
+                                                ∎ 體驗費用：500元<br />
+                                                ∎ 現場報名，活動詳情請洽品牌
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="tfai">
+                        <div class="tfai__tableArea">
+                            <div class="tfai__info">
+                                <p>
+                                    新北市美術館與國家電影及視聽文化中心攜手合作， 推出【映像回潮：NTCAM × TFAI 經典影展】，邀你一起回味臺灣電影的經典時光。 
+                                    <br />
+                                    精選國家影視聽中心的數位修復片單，從充滿童趣的《魔法阿媽》，到刻畫人生細膩情感的《戀戀風塵》與《飲食男女》， 再到描繪在地風景的《淡水暮色》、紀錄節慶人情的《咚咚響的龍船鼓》，以及珍貴的《鄧南光8mm電影》， 每一部作品都將帶領觀眾走進不同時代的生活記憶與文化風景。
+                                    <br />
+                                    當光影回潮，新美館成為承載故事的溫暖場所。 我們希望讓修復後的經典影像，不只是被回顧，更成為與當下生活對話的媒介—— 無論是闔家觀賞、朋友相聚，或是一場與自己靜靜對話的午後， 都能在這裡找到屬於你的一幕好時光。
+                                    <br />
+                                    ＊免費入場/可自由進出入座，請互相尊重其他觀影人＊
+                                </p>
+                            </div>
+                            <div class="tfai__section">
+                                <div class="tfai__date">11/1（六）</div>
+                                <div class="tfai__table">
+                                    <div class="tfai__table__row">
+                                        <div class="tfai__table__img">
+                                            <img src="./images/tfai-01.jpg" />
+                                        </div>
+                                        <div class="tfai__table__text">
+                                            <div class="tfai__table__cell">11:30-12:50</div>
+                                            <div class="tfai__table__cell">魔法阿媽</div>
+                                            <div class="tfai__table__cell"><span>新美聚場 A1空間</span></div>
+                                    
+                                        </div>
+                                    </div>
+                                    <div class="tfai__table__row">
+                                        <div class="tfai__table__img">
+                                            <img src="./images/tfai-02.jpg" />
+                                        </div>
+                                        <div class="tfai__table__text">
+                                            <div class="tfai__table__cell">11:30-13:22</div>
+                                            <div class="tfai__table__cell">戀戀風塵</div>
+                                            <div class="tfai__table__cell"><span>天臺 B2+空間</span></div>
+                                    
+                                        </div>
+                                    </div>
+                                    <div class="tfai__table__row">
+                                        <div class="tfai__table__img">
+                                            <img src="./images/tfai-03.jpg" />
+                                        </div>
+                                        <div class="tfai__table__text">
+                                            <div class="tfai__table__cell">13:00-15:04</div>
+                                            <div class="tfai__table__cell">飲食男女</div>
+                                            <div class="tfai__table__cell"><span>新美聚場 A1空間</span></div>
+                                    
+                                        </div>
+                                    </div>
+                                    <div class="tfai__table__row">
+                                        <div class="tfai__table__img">
+                                            <img src="./images/tfai-04.jpg" />
+                                        </div>
+                                        <div class="tfai__table__text">
+                                            <div class="tfai__table__cell">14:00-14:37</div>
+                                            <div class="tfai__table__cell">Si So Mi+熱帶複眼+白蟻餵食秀</div>
+                                            <div class="tfai__table__cell"><span>天臺 B2+空間</span></div>
+                                    
+                                        </div>
+                                    </div>
+                                    <div class="tfai__table__row">
+                                        <div class="tfai__table__img">
+                                            <img src="./images/tfai-05.jpg" />
+                                        </div>
+                                        <div class="tfai__table__text">
+                                            <div class="tfai__table__cell">15:10-16:53</div>
+                                            <div class="tfai__table__cell">再見機器人</div>
+                                            <div class="tfai__table__cell"><span>新美聚場 A1空間</span></div>
+                                    
+                                        </div>
+                                    </div>
+                                    <div class="tfai__table__row">
+                                        <div class="tfai__table__img">
+                                            <img src="./images/tfai-06.jpg" />
+                                        </div>
+                                        <div class="tfai__table__text">
+                                            <div class="tfai__table__cell">15:30-16:27</div>
+                                            <div class="tfai__table__cell">鄧南光8mm電影</div>
+                                            <div class="tfai__table__cell"><span>天臺 B2+空間</span></div>
+                                    
+                                        </div>
+                                    </div>
+                                    <div class="tfai__table__row">
+                                        <div class="tfai__table__img">
+                                            <img src="./images/tfai-07.jpg" />
+                                        </div>
+                                        <div class="tfai__table__text">
+                                            <div class="tfai__table__cell">17:00-17:50</div>
+                                            <div class="tfai__table__cell">咚咚響的龍船鼓+淡水暮色</div>
+                                            <div class="tfai__table__cell"><span>新美聚場 A1空間</span></div>
+                                    
+                                        </div>
+                                    </div>
+                                    <div class="tfai__table__row">
+                                        <div class="tfai__table__img">
+                                            <img src="./images/tfai-04.jpg" />
+                                        </div>
+                                        <div class="tfai__table__text">
+                                            <div class="tfai__table__cell">17:00-17:37</div>
+                                            <div class="tfai__table__cell">Si So Mi+熱帶複眼+白蟻餵食秀</div>
+                                            <div class="tfai__table__cell"><span>天臺 B2+空間</span></div>
+                                    
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tfai__section">
+                                <div class="tfai__date">11/2（日）</div>
+                                <div class="tfai__table">
+                                    <div class="tfai__table__row">
+                                        <div class="tfai__table__img">
+                                            <img src="./images/tfai-05.jpg" />
+                                        </div>
+                                        <div class="tfai__table__text">
+                                            <div class="tfai__table__cell">11:30-13:13</div>
+                                            <div class="tfai__table__cell">再見機器人</div>
+                                            <div class="tfai__table__cell"><span>新美聚場 A1空間</span></div>
+                                    
+                                        </div>
+                                    </div>
+                                    <div class="tfai__table__row">
+                                        <div class="tfai__table__img">
+                                            <img src="./images/tfai-04.jpg" />
+                                        </div>
+                                        <div class="tfai__table__text">
+                                            <div class="tfai__table__cell">13:00-13:37</div>
+                                            <div class="tfai__table__cell">Si So Mi+熱帶複眼+白蟻餵食秀</div>
+                                            <div class="tfai__table__cell"><span>天臺 B2+空間</span></div>
+                                    
+                                        </div>
+                                    </div>
+                                    <div class="tfai__table__row">
+                                        <div class="tfai__table__img">
+                                            <img src="./images/tfai-02.jpg" />
+                                        </div>
+                                        <div class="tfai__table__text">
+                                            <div class="tfai__table__cell">13:30-15:22</div>
+                                            <div class="tfai__table__cell">戀戀風塵</div>
+                                            <div class="tfai__table__cell"><span>新美聚場 A1空間</span></div>
+                                    
+                                        </div>
+                                    </div>
+                                    <div class="tfai__table__row">
+                                        <div class="tfai__table__img">
+                                            <img src="./images/tfai-03.jpg" />
+                                        </div>
+                                        <div class="tfai__table__text">
+                                            <div class="tfai__table__cell">14:30-16:34</div>
+                                            <div class="tfai__table__cell">飲食男女</div>
+                                            <div class="tfai__table__cell"><span>天臺 B2+空間</span></div>
+                                    
+                                        </div>
+                                    </div>
+                                    <div class="tfai__table__row">
+                                        <div class="tfai__table__img">
+                                            <img src="./images/tfai-04.jpg" />
+                                        </div>
+                                        <div class="tfai__table__text">
+                                            <div class="tfai__table__cell">15:30-16:07</div>
+                                            <div class="tfai__table__cell">Si So Mi+熱帶複眼+白蟻餵食秀</div>
+                                            <div class="tfai__table__cell"><span>新美聚場 A1空間</span></div>
+                                    
+                                        </div>
+                                    </div>
+                                    <div class="tfai__table__row">
+                                        <div class="tfai__table__img">
+                                            <img src="./images/tfai-01.jpg" />
+                                        </div>
+                                        <div class="tfai__table__text">
+                                            <div class="tfai__table__cell">16:30-17:50</div>
+                                            <div class="tfai__table__cell">魔法阿媽</div>
+                                            <div class="tfai__table__cell"><span>新美聚場 A1空間</span></div>
+                                    
+                                        </div>
+                                    </div>
+                                    <div class="tfai__table__row">
+                                        <div class="tfai__table__img">
+                                            <img src="./images/tfai-04.jpg" />
+                                        </div>
+                                        <div class="tfai__table__text">
+                                            <div class="tfai__table__cell">17:00-17:37</div>
+                                            <div class="tfai__table__cell">Si So Mi+熱帶複眼+白蟻餵食秀</div>
+                                            <div class="tfai__table__cell"><span>天臺 B2+空間</span></div>
+                                    
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="info__footer">
+                    <img src="./images/info__footer.svg" />
+                </div>
+            </div>
+        </div>
+        <!-- <div class="columns">
+            <div class="columns__content">
+                <div class="columns__title">
+                    <span class="zh">專題報導</span>
+                    <span class="en">COLUMNS</span>
+                </div>
+                <ul class="colums__list">
+                    <li>
+                        <div class="detail">
+                            <div class="category">Shopping Design</div>
+                            <div class="date">2025-10-21</div>
+                            <div class="title">
+                                這裡是專題報導的標題，通常會有兩到三句，所以這裡再補一句。
+                            </div>
+                        </div>
+                        <div class="image">
+                            <img src="./images/columns_01.jpg" />
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div> -->
+        <div class="guide">
+            <div class="guide__content">
+                <div class="guide__detail--text">
+                    <div class="guide__title mainTitle">
+                        <img src="./images/guide__title.svg" />
+                    </div>
+                    <div class="detail">
+                        <div class="subtitle">捷運</div>
+                        <p>
+                            捷運路網圖、各站資訊、時刻表、車票種類及票價等更多詳細資訊，請至臺北捷運網站查詢。
+                        </p>
+                        <div class="subtitle">公車</div>
+                        <p>
+                            付費方式：採車上投現或使用悠遊卡刷卡雙軌並行，公車上不售票、不找零。
+                        </p>
+                    </div>
+                </div>
+                <div class="guide__detail--iframe"></div>
+            </div>
+            <div class="footer">
+                <img src="./images/icon--ntcam.svg" />
+                <ul class="unitList">
+                    <li>指導單位：新北市政府</li>
+                    <li>主辨單位：新北市美術館</li>
+                    <li>協辨單位：國家電影及視聽文化中心</li>
+                </ul>
+                <ul class="socialList">
+                    <li>
+                        <img src="./images/icon--fb.svg" />
+                    </li>
+                    <li>
+                        <img src="./images/icon--ig.svg" />
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>

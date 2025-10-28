@@ -1,0 +1,52 @@
+.guide {
+    display: flex;
+    flex-direction: column;
+    gap: 96px;
+    padding: 96px 0 0;
+    background: url('../images/footer__BG.jpg') center bottom / auto 513px no-repeat;
+    &__content {
+        display: flex;
+        flex-direction: row;
+        gap: 48px;
+        width: 100%;
+        max-width: 1024px;
+    }
+    &__detail {
+        width: 100%;
+        &--text {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 48px;
+            .detail {
+                display: flex;
+                flex-direction: column;
+                gap: 24px;
+                .subtitle {
+                    color: #017EFF;
+                    &:before {
+                        content: '';
+                        display: block;
+                        width: 4px;
+                        height: 28px;
+                        background-color: #017EFF;
+                    }
+                }
+            }
+        }
+        &--iframe {
+            flex: 1;
+        }
+    }
+
+    &__title {
+        width: 384px;
+        height: 144px;
+        img {
+            width: 100%;
+            height: 144px;
+            object-fit: contain;
+            object-position: top left;
+        }
+    }
+}

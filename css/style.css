@@ -573,6 +573,39 @@ p {
   transition: opacity 0.3s ease;
 }
 
+@media screen and (max-width: 979px) {
+  p, ul li, ol li {
+    font-size: 14px;
+    line-height: 25px;
+  }
+  #app .footer {
+    flex-direction: column;
+    gap: 24px;
+    height: auto;
+    padding: 24px;
+  }
+  #app .footer > img {
+    width: auto;
+    height: 24px;
+  }
+  #app .footer .unitList {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  #app .footer .unitList li {
+    font-size: 12px;
+  }
+  #app .footer .unitList li:nth-child(n+2) {
+    padding-left: 0;
+    border-left: 0;
+  }
+  #app .footer .socialList {
+    justify-content: center;
+    gap: 12px;
+    width: 100%;
+  }
+}
 .banner {
   width: 100%;
 }
@@ -628,6 +661,32 @@ p {
      object-position: top left;
 }
 
+@media screen and (max-width: 979px) {
+  .about {
+    padding: 24px 0 0;
+  }
+  .about__content {
+    flex-direction: column-reverse;
+    gap: 24px;
+  }
+  .about__content .detail {
+    gap: 12px;
+    width: 100%;
+    padding: 24px;
+  }
+  .about__title {
+    width: 100%;
+    height: 72px;
+  }
+  .about__title img {
+    width: 100%;
+    height: 72px;
+    -o-object-fit: contain;
+       object-fit: contain;
+    -o-object-position: top left;
+       object-position: top left;
+  }
+}
 .map {
   height: 564px;
   padding: 96px 0;
@@ -661,8 +720,34 @@ p {
      object-position: top left;
 }
 
+@media screen and (max-width: 979px) {
+  .map {
+    padding: 0;
+  }
+  .map .wrapper {
+    flex-direction: column-reverse;
+    justify-content: center;
+    gap: 24px;
+  }
+  .map__content {
+    width: 100%;
+    height: auto;
+  }
+  .map__title {
+    width: 100%;
+    height: 108px;
+  }
+  .map__title img {
+    width: 100%;
+    height: 108px;
+    -o-object-fit: contain;
+       object-fit: contain;
+    -o-object-position: top left;
+       object-position: top left;
+  }
+}
 .mission {
-  padding: 96px 0 96px;
+  padding: 96px 0;
   background: url("../images/mission_BG--top.jpg") center top/auto 348px no-repeat, url("../images/mission_BG--bottom.jpg") center bottom/auto 623px no-repeat;
 }
 .mission .wrapper {
@@ -733,6 +818,44 @@ p {
      object-position: top left;
 }
 
+@media screen and (max-width: 979px) {
+  .mission {
+    padding: 96px 0;
+  }
+  .mission__content {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 24px;
+  }
+  .mission__detail--text {
+    width: 100%;
+  }
+  .mission__detail--text .notice--square {
+    padding: 24px;
+  }
+  .mission__detail--text .notice--square .title {
+    font-size: 16px;
+  }
+  .mission__detail--image {
+    width: 100%;
+  }
+  .mission__detail--image img {
+    width: 100%;
+    height: 280px;
+  }
+  .mission__title {
+    width: 100%;
+    height: 72px;
+  }
+  .mission__title img {
+    width: 100%;
+    height: 72px;
+    -o-object-fit: contain;
+       object-fit: contain;
+    -o-object-position: top left;
+       object-position: top left;
+  }
+}
 .info {
   padding: 96px 0 96px;
   background: url("../images/info_BG.jpg") center top/auto 407px no-repeat;
@@ -1166,6 +1289,140 @@ p {
   background-color: #017EFF;
 }
 
+@media screen and (max-width: 979px) {
+  .info {
+    padding: 48px 0;
+  }
+  .info__header {
+    flex-direction: column-reverse;
+    align-items: flex-start;
+    gap: 24px;
+  }
+  .info__nav {
+    gap: 12px;
+    width: 100%;
+  }
+  .info__nav li {
+    font-size: 14px;
+  }
+  .info__detail {
+    gap: 36px;
+    padding: 24px;
+  }
+  .info .artist__detail {
+    flex-direction: column;
+  }
+  .info .artist__detail__card {
+    flex-direction: column;
+    width: 100%;
+  }
+  .info .artist__detail__card img {
+    width: 100%;
+  }
+  .info .artist__detail__card .text {
+    width: 100%;
+  }
+  .info .artist__title {
+    font-size: 18px;
+  }
+  .info .artist__table__row {
+    flex-direction: column;
+  }
+  .info .artist__table__cell:nth-child(2) {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .info .artist__table__cell:nth-child(2) .location {
+    width: 100%;
+  }
+  .info .studio__sectionArea {
+    flex-direction: column;
+    gap: 24px;
+  }
+  .info .studio__section {
+    width: 100%;
+  }
+  .info .studio__section .detail > img {
+    height: 160px;
+  }
+  .info .studio__section .detail .detail__section {
+    flex-direction: column;
+    gap: 16px;
+  }
+  .info .studio__section .detail .detail__title {
+    width: 100%;
+  }
+  .info .studio__section .detail .detail__detail {
+    width: 100%;
+  }
+  .info .market__list {
+    gap: 12px;
+  }
+  .info .market__list li {
+    width: 100%;
+  }
+  .info .market__list li a img {
+    height: 160px;
+  }
+  .info .lab__section {
+    flex-direction: column;
+    gap: 24px;
+  }
+  .info .lab__section img {
+    width: 100%;
+  }
+  .info .lab__section .text {
+    width: 100%;
+  }
+  .info .tfai__info {
+    padding: 24px;
+    border: #8b9db3 1px solid;
+    border-radius: 16px;
+    background-color: white;
+  }
+  .info .tfai__info p span {
+    display: flex;
+    font-size: 16px;
+    font-weight: 700;
+    margin-top: 24px;
+  }
+  .info .tfai__date {
+    padding: 12px 0;
+    font-size: 18px;
+  }
+  .info .tfai__table {
+    flex: 4;
+    display: flex;
+    flex-direction: column;
+  }
+  .info .tfai__table__row {
+    flex-direction: column;
+  }
+  .info .tfai__table__img {
+    height: 160px;
+    width: 100%;
+  }
+  .info .tfai__table__img img {
+    height: 160px;
+    width: 100%;
+  }
+  .info .tfai__table__text {
+    width: 100%;
+    padding: 24px;
+  }
+  .info__title {
+    width: 100%;
+    height: 72px;
+  }
+  .info__title img {
+    width: 100%;
+    height: 72px;
+    -o-object-fit: contain;
+       object-fit: contain;
+    -o-object-position: top left;
+       object-position: top left;
+  }
+}
 .columns {
   padding: 96px 0 96px;
   background: url("../images/columns_BG--top.jpg") center top/auto 438px no-repeat, url("../images/columns_BG--bottom.jpg") center bottom/auto 320px no-repeat;
@@ -1228,4 +1485,31 @@ p {
      object-fit: contain;
   -o-object-position: top left;
      object-position: top left;
+}
+
+@media screen and (max-width: 979px) {
+  .guide {
+    gap: 48px;
+    padding: 48px 24px 0;
+    background: url("../images/footer__BG.jpg") center bottom/auto 513px no-repeat;
+  }
+  .guide__content {
+    gap: 24px;
+    width: 100%;
+  }
+  .guide__detail--text {
+    width: 100%;
+  }
+  .guide__title {
+    width: 100%;
+    height: 108px;
+  }
+  .guide__title img {
+    width: 100%;
+    height: 108px;
+    -o-object-fit: contain;
+       object-fit: contain;
+    -o-object-position: top left;
+       object-position: top left;
+  }
 }/*# sourceMappingURL=style.css.map */

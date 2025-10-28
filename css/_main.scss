@@ -124,5 +124,38 @@ p {
 }
 
 @media screen and (max-width: 979px) {
+    p, ul li, ol li {
+        font-size: 14px;
+        line-height: 25px;
+    }
 
+    #app {
+        .footer {
+            flex-direction: column;
+            gap: 24px;
+            height: auto;
+            padding: 24px;
+            > img {
+                width: auto;
+                height: 24px;
+            }
+            .unitList {
+                display: flex;
+                flex-direction: column;
+                gap: 12px;
+                li {
+                    font-size: 12px;
+                    &:nth-child(n + 2) {
+                        padding-left: 0;
+                        border-left: 0;
+                    }
+                }
+            }
+            .socialList {
+                justify-content: center;
+                gap: 12px;
+                width: 100%;
+            }
+        }
+    }
 }

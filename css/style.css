@@ -760,7 +760,6 @@ p {
 .mission__content {
   display: flex;
   flex-direction: row;
-  align-items: flex-end;
   gap: 48px;
 }
 .mission__detail--text {
@@ -793,8 +792,10 @@ p {
   color: #DAFE38;
 }
 .mission__detail--image {
+  position: relative;
   display: flex;
   flex-direction: column;
+  justify-content: flex-end;
   gap: 24px;
   width: 280px;
 }
@@ -805,6 +806,13 @@ p {
      object-fit: cover;
   -o-object-position: center;
      object-position: center;
+}
+.mission__detail--image img:first-child {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: calc(100% + 260px);
+  height: auto;
 }
 .mission__title {
   width: 100%;
@@ -843,6 +851,13 @@ p {
   .mission__detail--image img {
     width: 100%;
     height: 280px;
+  }
+  .mission__detail--image img:first-child {
+    position: relative;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: auto;
   }
   .mission__title {
     width: 100%;
@@ -1172,6 +1187,9 @@ p {
 }
 .info .lab__section img {
   width: 240px;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 .info .lab__section .text {
   display: flex;
@@ -1195,11 +1213,18 @@ p {
   border-radius: 8px;
   color: white;
   background-color: #FF99B1;
+  cursor: pointer;
+}
+.info .lab__title:hover {
+  text-decoration: underline;
 }
 .info .lab__detail {
   display: flex;
   flex-direction: column;
   gap: 12px;
+}
+.info .lab__detail .detail a {
+  text-decoration: underline;
 }
 .info .tfai__info {
   padding: 48px;

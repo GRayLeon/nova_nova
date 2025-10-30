@@ -310,6 +310,8 @@
         gap: 48px;
         img {
             width: 240px;
+            height: 100%;
+            object-fit: cover;
         }
         .text {
             display: flex;
@@ -335,12 +337,21 @@
         border-radius: 8px;
         color: white;
         background-color: #FF99B1;
+        cursor: pointer;
+        &:hover {
+            text-decoration: underline;
+        }
     }
 
     .lab__detail {
         display: flex;
         flex-direction: column;
         gap: 12px;
+        .detail {
+            a {
+                text-decoration: underline;
+            }
+        }
     }
 
     .tfai__info {
